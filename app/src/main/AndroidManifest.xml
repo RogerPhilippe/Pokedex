@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.fiap.phs.pokedex">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -18,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.scan.ScanActivity" />
-        <activity android:name=".view.list.List" />
+        <activity android:name=".view.list.ListActivity" />
         <activity android:name=".view.form.Form" />
         <activity android:name=".view.detail.DetailActivity" />
         <activity android:name=".view.main.MainActivity"/>
