@@ -4,6 +4,7 @@ import android.app.Application
 import br.com.fiap.phs.pokedex.di.networkModule
 import br.com.fiap.phs.pokedex.di.repositoryModule
 import br.com.fiap.phs.pokedex.di.viewModelModule
+import br.com.fiap.phs.pokedex.di.viewModule
 import com.facebook.stetho.BuildConfig
 import com.facebook.stetho.Stetho
 import org.koin.android.ext.koin.androidContext
@@ -25,7 +26,8 @@ class MyApplication : Application(){
                 listOf(
                     viewModelModule,
                     networkModule,
-                    repositoryModule
+                    repositoryModule,
+                    viewModule
                 )
             )
         }

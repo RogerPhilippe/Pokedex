@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.scan.ScanActivity" />
-        <activity android:name=".view.list.ListActivity" />
-        <activity android:name=".view.form.Form" />
+        <activity android:name=".view.list.ListPokemonsActivity" />
+        <activity android:name=".view.form.FormPokemonActivity" />
         <activity android:name=".view.detail.DetailActivity" />
         <activity android:name=".view.main.MainActivity"/>
     </application>

@@ -12,8 +12,14 @@ interface PokemonRepository {
     fun getPokemons(
         size: Int,
         sort: String,
-        onComplete: (List<Pokemon>?) -> Unit,
-        onError: (Throwable?) -> Unit
+        onComplete: (List<Pokemon>) -> Unit,
+        onError: (Throwable) -> Unit
+    )
+
+    fun updatePokemon(
+        pokemon: Pokemon,
+        onComplete:(Pokemon) -> Unit,
+        onError:(Throwable) -> Unit
     )
 
 }

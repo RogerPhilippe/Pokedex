@@ -4,6 +4,7 @@ import br.com.fiap.phs.pokedex.api.PokemonService
 import br.com.fiap.phs.pokedex.model.HealthResponse
 import br.com.fiap.phs.pokedex.model.Pokemon
 import br.com.fiap.phs.pokedex.model.PokemonResponse
+import br.com.fiap.phs.pokedex.model.emptyPokemon
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,8 +28,8 @@ class PokemonRepositoryImpl(private var pokemonService: PokemonService) :
 
     override fun getPokemons(
         size: Int, sort: String,
-        onComplete: (List<Pokemon>?) -> Unit,
-        onError: (Throwable?) -> Unit
+        onComplete: (List<Pokemon>) -> Unit,
+        onError: (Throwable) -> Unit
     ) {
 
         pokemonService.getPokemons(size, sort)
@@ -39,9 +40,27 @@ class PokemonRepositoryImpl(private var pokemonService: PokemonService) :
                 override fun onResponse(call: Call<PokemonResponse>, response:
                 Response<PokemonResponse>) {
                     if (response.isSuccessful) {
-                        onComplete(response.body()?.content)
+                        onComplete(response.body()?.content ?: listOf())
                     } else {
                         onError(Throwable("Não foi possível carregar os Pokémons"))
+                    }
+                }
+            })
+    }
+
+    override fun updatePokemon(pokemon: Pokemon, onComplete: (Pokemon) -> Unit,
+                               onError: (Throwable) -> Unit) {
+        pokemonService
+            .updatePokemon(pokemon)
+            .enqueue(object : Callback<Pokemon>{
+                override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+                    onError(t)
+                }
+                override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
+                    if(response.isSuccessful) {
+                        onComplete(response.body() ?: emptyPokemon)
+                    } else {
+                        onError(Throwable("Não foi possível realizar a requisição"))
                     }
                 }
             })
