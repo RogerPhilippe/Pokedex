@@ -34,4 +34,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    //Biblioteca para adicionar ler QRCode
+    implementation "me.dm7.barcodescanner:zxing:1.9.13"
+    //Biblioteca para adicionar lista performatica ao aplicativo
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    //Biblioteca para adicionar cards ao aplicativo
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //Biblioteca para adicionar animacoes no projeto
+    implementation 'com.airbnb.android:lottie:3.0.7'
 }

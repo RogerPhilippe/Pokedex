@@ -1,7 +1,8 @@
-package br.com.fiap.phs.pokedex
+package br.com.fiap.phs.pokedex.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.fiap.phs.pokedex.R
 
 class MainActivity : AppCompatActivity() {
 
